@@ -1,0 +1,6 @@
+.register {
+  background-image: url("../BackImage.jpg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
