@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -17,17 +17,29 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import FactCheckIcon from "@mui/icons-material/FactCheck";
+import MenuIcon from "@mui/icons-material/Menu";
+import "./SignUpPage.css";
+import Resume from "./Resume/Resume";
+// import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 const navItems = [];
 
 function PfHead(props) {
+  // const navigate = useNavigate();
+  const [showResume, setShowResume] = useState(false);
+  // const [open, setOpen] = useState(false);
   const [state, setState] = React.useState({
     top: false,
     left: false,
     bottom: false,
     right: false,
   });
+  const HandleClick = (text) => {
+    if (text[0]) {
+      setShowResume(true);
+    }
+  };
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -94,8 +106,8 @@ function PfHead(props) {
       </List>
       <Divider />
       <List>
-        {["Resume", "LinkedIn Profile"].map((text, index) => (
-          <ListItem key={text} disablePadding>
+        {["Resume", "LinkedIn Profile", "Log Out"].map((text, index) => (
+          <ListItem key={text} disablePadding onClick={() => HandleClick(text)}>
             <ListItemButton>
               <ListItemIcon>
                 {index % 2 === 0 ? <AccountBoxIcon /> : <FactCheckIcon />}
@@ -110,7 +122,7 @@ function PfHead(props) {
 
   return (
     <>
-      <Box sx={{ display: "flex" }}>
+      <Box className="register" sx={{ display: "flex" }}>
         <CssBaseline />
         <AppBar component="nav">
           <Toolbar>
@@ -131,10 +143,11 @@ function PfHead(props) {
                   style={{ color: "white", textTransform: "capitalize" }}
                   onClick={toggleDrawer("anchor", true)}
                 >
+                  <MenuIcon sx={{ marginRight: "0.5rem" }} />
                   {capitalizeFirstLetter("Profile")}
                 </Button>
                 <SwipeableDrawer
-                  anchor={"anchor"}
+                  anchor={"left"}
                   open={state["anchor"]}
                   onClose={toggleDrawer("anchor", false)}
                   onOpen={toggleDrawer("anchor", true)}
@@ -153,7 +166,15 @@ function PfHead(props) {
             </Box>
           </Toolbar>
         </AppBar>
-        <nav>
+        <nav
+          style={{
+            justifyContent: "center",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+            // marginTop: "4rem",
+          }}
+        >
           <Drawer
             container={container}
             variant="temporary"
@@ -172,6 +193,28 @@ function PfHead(props) {
           >
             {drawer}
           </Drawer>
+
+          <main
+            style={{
+              display: "flex",
+              flexGrow: 1,
+              padding: "10rem",
+              marginTop: "1rem",
+            }}
+          >
+            {showResume && (
+              <Box
+                sx={{
+                  width: "100%",
+                  maxWidth: "900px",
+                  borderRadius: "8px",
+                  textAlign: "center",
+                }}
+              >
+                <Resume />
+              </Box>
+            )}
+          </main>
         </nav>
       </Box>
     </>

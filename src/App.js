@@ -1,17 +1,21 @@
 import "./App.css";
-
-import Routing from './components/Routing/Routing'
-function App() {
-  return (
-    <Routing/>
-import Routing from "./components/routing/Routing";
+import FrontPage from "./components/Front/FrontPage";
+import Routing from "./components/Routing/Routing";
+// import Example from "./components/Example/Example";
+import PfHead from "./components/PfHead";
+import Resume from "./components/Resume/Resume";
 
 function App() {
   return (
     <>
       <div className="App">
+        {/* <Resume /> */}
+        {/* <PfHead /> */}
+        {/* <Example /> */}
         <Routing />
+        {/* <SignIn /> */}
       </div>
+      {/* <FrontPage /> */}
     </>
   );
 }
