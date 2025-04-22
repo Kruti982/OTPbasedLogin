@@ -19,7 +19,8 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import FactCheckIcon from "@mui/icons-material/FactCheck";
 import MenuIcon from "@mui/icons-material/Menu";
 import "./SignUpPage.css";
-import Resume from "./Resume/Resume";
+// import Resume from "./Resume/Resume";
+import Pdf from "./Resume/Pdf";
 // import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -211,7 +212,7 @@ function PfHead(props) {
                   textAlign: "center",
                 }}
               >
-                <Resume />
+                <Pdf />
               </Box>
             )}
           </main>

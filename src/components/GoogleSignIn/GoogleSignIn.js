@@ -32,10 +32,10 @@ const Googlesignin = () => {
           alignItems: "center",
           justifyContent: "center",
         }}
+        onClick={signInWithGoogle}
       >
         <GoogleIcon
           className="bg-red-700 text-white rounded-xl w-full p-2"
-          onClick={signInWithGoogle}
           color="secondary"
           sx={{ fontSize: 40 }}
         />

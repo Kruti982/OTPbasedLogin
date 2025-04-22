@@ -6,7 +6,7 @@ export default function Header() {
       </h2>
       <ul
         className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4 text-gray-700"
-        style={{ listStyle: "none", textAlign: "center" }}
+        style={{ listStyle: "none" }}
       >
         <li>React.js</li>
         <li>JavaScript (ES6+)</li>
